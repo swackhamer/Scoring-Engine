@@ -1,0 +1,37 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+        <meta http-equiv="refresh" content="60">
+        <title>CCDC Practice Scoreboard</title>
+
+<style type="text/css">
+        .up { background: green; }
+        .down { background: red; }
+        table { border-spacing: 10px; }
+</style>
+
+</head>
+
+<body bgcolor="black">
+        <br />
+        <center><h1 style="color: white;">CCDC Practice Scoreboard</h1></center>
+    <div id="content">
+        {% block content %}
+		{% for team in teams %}
+			<center>
+			<table style="color: white;">
+			<tr style="font-size: x-large;"><th>{{ team.name }}</th></tr>
+			<tr style="font-size: x-large;"><th>Service</th><th>IP Address</th><th>Successful</th></tr>
+				{% for service in services %}
+					{% ifequal service.team team.name %}
+					<tr><td>{{ service.name }}</td><td>{{ service.ip }}</td><td>{{service.status}}</td></tr>
+					{% endifequal %}
+				{% endfor %}
+			</tr>
+			<br><br>
+		{% endfor %}
+		{% endblock %}
+    </div>
+</body>
+</html>

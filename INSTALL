@@ -1,0 +1,7 @@
+Django.noarch
+python-devel
+mysql-devel
+gcc
+http://sourceforge.net/projects/mysql-python/files/mysql-python/1.2.1_p2/MySQL-python-1.2.1_p2.tar.gz/download
+
+MYSQL DB 'ccdc'
