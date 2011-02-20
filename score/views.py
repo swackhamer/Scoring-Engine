@@ -4,6 +4,7 @@ from ccdc.score.models import *
 from django.http import Http404
 from django.shortcuts import get_object_or_404, render_to_response
 import dns_resolver
+import ssh
 
 def index(request):
     html = ''
@@ -13,8 +14,14 @@ def index(request):
         s = dict()
         s['name'] = serv.name
         s['ip'] = serv.address
-        s['ip'] = dns_resolver.get_A_record('192.168.1.2','google.com')
-        s['status'] = serv.status
+        s['ip'] = dns_resolver.get_A_record('192.168.1.1','google.com')[0]
+        s['status'] = ""
+        #testing
+        if s['name'] == 'SSH' or s['name'] == 'ssh':
+            if ssh.isSSH(serv.address):
+                s['status'] = 'UPity'
+            else:
+                s['status'] = serv.status
         s['team'] = serv.team_name.name
         sList.append(s)
     
