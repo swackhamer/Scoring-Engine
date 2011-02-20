@@ -5,7 +5,7 @@ $SERVICE = 'HTTP';
 $URL = 'http://192.168.201.97';
 $HASH = '125887fd5bfc6f0bdba9264279063758'; 
 
-mysql_connect('localhost','root','P@ssw0rd');
+mysql_connect('localhost','ccdc','P@ssw0rd');
 mysql_select_db('ccdc');
 
 // Add service to db if it doesn't already exist
